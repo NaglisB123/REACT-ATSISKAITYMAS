@@ -29,6 +29,54 @@ const products = [
     price: "$75.00",
     image: product4Image,
   },
+  {
+    id: 1,
+    name: "Oakwood table",
+    price: "$150.00",
+    image: product1Image,
+  },
+  {
+    id: 2,
+    name: "Wall lamp",
+    price: "$70.00",
+    image: product2Image,
+  },
+  {
+    id: 3,
+    name: "Barrel rounded table",
+    price: "$350.00",
+    image: product3Image,
+  },
+  {
+    id: 4,
+    name: "Rosewood bar chair",
+    price: "$75.00",
+    image: product4Image,
+  },
+  {
+    id: 1,
+    name: "Oakwood table",
+    price: "$150.00",
+    image: product1Image,
+  },
+  {
+    id: 2,
+    name: "Wall lamp",
+    price: "$70.00",
+    image: product2Image,
+  },
+  {
+    id: 3,
+    name: "Barrel rounded table",
+    price: "$350.00",
+    image: product3Image,
+  },
+  {
+    id: 4,
+    name: "Rosewood bar chair",
+    price: "$75.00",
+    image: product4Image,
+  },
 ];
 
 export default function ProductsPage() {

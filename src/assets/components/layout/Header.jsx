@@ -19,9 +19,6 @@ export default function Header() {
                 <li>
                   <NavLink to='/contact-page' className="text-2xl text-white hover:text-gray-200">Contact</NavLink>
                 </li>
-                <li>
-                  <NavLink to='/about-page' className="text-2xl text-white hover:text-gray-200">About</NavLink>
-                </li>
               </ul>
             </div>
           </div>
