@@ -2,7 +2,7 @@ import React from "react";
 
 export default function HomePage() {
   return (
-    <div className="bg p-20 w-1/1 text-2xl p-20 text-zinc-50">
+    <div className="bg text-2xl p-20 text-zinc-50 translate-x-30">
       <p className="pt-10 shadow-md">
         NEW COLLECTION IN THE STYLE OF OLD BIRMINGHAM
       </p>
