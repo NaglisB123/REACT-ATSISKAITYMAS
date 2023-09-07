@@ -28,6 +28,11 @@ h1 {
   line-height: 1.1;
 }
 
+.bg {
+  background-image: url(./images/garrisonpub.jpg);
+  height: 800px;
+}
+
 button {
   border-radius: 8px;
   border: 1px solid transparent;
