@@ -14,10 +14,10 @@ export default function Header() {
                   <NavLink to='/home-page' className="text-2xl text-white hover:text-gray-200">Home</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/products-page' className="text-2xl text-white hover:text-gray-200">Products</NavLink>
+                  <NavLink to='/register-page' className="text-2xl text-white hover:text-gray-200">Register</NavLink>
                 </li>
                 <li>
-                  <NavLink to='/contact-page' className="text-2xl text-white hover:text-gray-200">Contact</NavLink>
+                  <NavLink to='/login-page' className="text-2xl text-white hover:text-gray-200">Login</NavLink>
                 </li>
               </ul>
             </div>
