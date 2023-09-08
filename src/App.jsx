@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Header from "./assets/components/layout/Header";
 import HomePage from './pages/HomePage'
-import RegisterPage from './pages/RegiserPage'
+import RegisterPage from './pages/RegisterPage'
 import LoginPage from './pages/LoginPage'
 
 

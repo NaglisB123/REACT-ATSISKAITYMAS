@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useState } from 'react';
 import { auth } from '../../firebase/firebase';
-
+import { Link } from 'react-router-dom';
 
 export default function Login() {
   const [emailValue, setEmailValue] = useState('john@frusciante.com');
@@ -9,24 +9,18 @@ export default function Login() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    console.log('ar veikia?');
-    console.log('emailValue ===', emailValue);
-    console.log('passwordValue ===', passwordValue);
 
-    // nutraukti funkcijo vykdyma jei tuscias email arba password
     if (!emailValue || !passwordValue) {
       console.warn('EMAIL OR PASSWORD NOT ENTERED');
       return;
     }
 
     loginWithFireBase();
-    console.log('forma ok');
   }
 
   function loginWithFireBase() {
     signInWithEmailAndPassword(auth, emailValue, passwordValue)
       .then((userCredential) => {
-
         const user = userCredential.user;
         console.log('user ===', user);
       })
@@ -39,7 +33,7 @@ export default function Login() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
+    <div className="flex items-center justify-center bg-gray-50">
       <div className="max-w-md w-full space-y-8 p-4 bg-white rounded-lg shadow-lg">
         <h2 className="text-3xl font-extrabold text-center">Login here</h2>
         <form onSubmit={handleSubmit} className="mt-8 space-y-4">
@@ -71,6 +65,14 @@ export default function Login() {
         <div>
           <p>Entered email: {emailValue}</p>
           <p>Entered password: {passwordValue}</p>
+        </div>
+        <div className="text-center">
+          <p className="mt-2 text-sm text-gray-600">
+            Don't have an account?{" "}
+            <Link to="/register-page" className="font-medium text-indigo-600 hover:text-indigo-500">
+              Register
+            </Link>
+          </p>
         </div>
       </div>
     </div>
