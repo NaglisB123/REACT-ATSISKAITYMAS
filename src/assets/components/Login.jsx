@@ -1,21 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { useState } from 'react';
 import { auth } from '../../firebase/firebase';
 import { Link, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const navigate = useNavigate();
 
-  // Define the initial form values
   const initialValues = {
     email: '',
     password: '',
   };
 
-  // Define the validation schema using Yup
   const validationSchema = Yup.object({
     email: Yup.string()
       .email('Invalid email address')
@@ -25,12 +22,12 @@ export default function Login() {
       .required('Password is required'),
   });
 
-  // Use useFormik hook to set up the form
+  const [loginError, setLoginError] = useState(null);
+
   const formik = useFormik({
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      // This function is called when the form is submitted
       console.log('Form submitted with values:', values);
       loginWithFirebase(values.email, values.password);
     },
@@ -44,10 +41,9 @@ export default function Login() {
         navigate('/shop-page');
       })
       .catch((error) => {
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        console.log('Authentication error - errorCode:', errorCode);
-        console.log('Authentication error - errorMessage:', errorMessage);
+        const errorMessage = "Email or password is incorrect";
+        console.log('Authentication error:', errorMessage);
+        setLoginError(errorMessage);
       });
   }
 
@@ -57,6 +53,7 @@ export default function Login() {
         <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-8">
           Login
         </h2>
+        {loginError && <div className="text-red-500">{loginError}</div>}
         <form onSubmit={formik.handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div className="flex flex-col">

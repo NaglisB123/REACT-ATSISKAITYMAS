@@ -16,10 +16,7 @@ export default function App() {
         <Route path="home-page" element={<HomePage />} />
         <Route path="register-page" element={<RegisterPage />} />
         <Route path="login-page" element={<LoginPage />} />
-        <Route
-          path="shop-page"
-          element={ctx.isLoggedIn ? <Shop /> : <Navigate to={"/login-page"} />}
-        />
+        <Route path="shop-page" element={<Shop />} />
       </Routes>
     </div>
   );
