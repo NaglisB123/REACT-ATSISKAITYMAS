@@ -1,48 +1,62 @@
-import React, { useState } from "react";
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { useState } from 'react';
+import { auth } from '../../firebase/firebase';
 import { Link } from "react-router-dom";
 
-export default function LoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+export default function Login() {
+  const [emailValue, setEmailValue] = useState('john@frusciante.com');
+  const [passwordValue, setPasswordValue] = useState('123456');
 
-  const handleLogin = (e) => {
-    e.preventDefault();
-  };
-
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log('IS WORKING ?');
+    console.log('emailValue ===', emailValue);
+    console.log('passwordValue ===', passwordValue);
+    if (!emailValue || !passwordValue) {
+      console.warn('email or password not entered');
+      return;
+    }
+    loginWithFirebase();
+    console.log('form success');
+  }
+  function loginWithFirebase() {
+    signInWithEmailAndPassword(auth, emailValue, passwordValue)
+      .then((userCredential) => {
+        const user = userCredential.user;
+        console.log('user ===', user);
+      })
+      .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        console.log('errorCode ===', errorCode);
+        console.log('errorMessage ===', errorMessage);
+      });
+  }
   return (
     <div className="flex items-center justify-center">
       <div className="bg-white rounded-lg shadow-lg p-8 space-y-6 w-120">
         <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-8">
           Login
         </h2>
-        <form onSubmit={handleLogin}>
+        <form onSubmit={handleSubmit}>
           <div className="rounded-md shadow-sm -space-y-px">
             <div className="flex flex-col">
               <input
-                id="email"
-                name="email"
-                type="email"
-                autoComplete="email"
-                required
+                onChange={(event) => setEmailValue(event.target.value)}
+                value={emailValue}
+                type='text'
+                placeholder='Email address'
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Email address"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
               />
               <input
-                id="password"
-                name="password"
-                type="password"
-                autoComplete="current-password"
-                required
+                onChange={(event) => setPasswordValue(event.target.value)}
+                value={passwordValue}
+                type='password'
+                placeholder='Password'
                 className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
-                placeholder="Password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
           </div>
-
           <div className="text-center">
             <button
               type="submit"
