@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../firebase/firebase';
+import { signInWithEmailAndPassword } from 'firebase/auth'
 import { Link, useNavigate } from "react-router-dom";
+import { auth } from '../../firebase/firebase';
+
 
 export default function Login() {
   const navigate = useNavigate();

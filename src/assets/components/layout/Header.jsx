@@ -4,6 +4,7 @@ import { useAuth } from "../../../store/AuthProvider";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebase/firebase";
 
+
 export default function Header() {
   const ctx = useAuth();
   console.log("ctx ===", ctx);
