@@ -5,6 +5,7 @@ import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
 import Shop from "./assets/components/Shop";
 import { useAuth } from "./store/AuthProvider";
+import Footer from "./assets/components/layout/Footer";
 
 export default function App() {
   const ctx = useAuth();
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="login-page" element={<LoginPage />} />
         <Route path="shop-page" element={<Shop />} />
       </Routes>
+      <Footer/>
     </div>
   );
 }
