@@ -67,9 +67,9 @@ export default function RegisterPage() {
   }
 
   return (
-    <div className="flex items-center justify-center">
-      <div className="bg-white rounded-lg shadow-lg p-8 space-y-6 w-120">
-        <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-8">
+    <div className="bgHill flex justify-center ">
+      <div className="bg-white rounded-lg shadow-lg p-8 w-1/24 h-1/3 mt-20">
+        <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-3 font-serif">
           Register an Account
         </h2>
         {serverError && <div className="text-red-500">{serverError}</div>}
@@ -82,39 +82,39 @@ export default function RegisterPage() {
                 type="email"
                 autoComplete="email"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-1"
                 placeholder="Email address"
                 value={formik.values.email}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 disabled={isLoading}
               />
-              {formik.touched.email && formik.errors.email ? (
+              {formik.touched.email && formik.errors.email && (
                 <div className="text-red-500">{formik.errors.email}</div>
-              ) : null}
+              )}
               <input
                 id="password"
                 name="password"
                 type="password"
                 autoComplete="new-password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-1"
                 placeholder="Password"
                 value={formik.values.password}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 disabled={isLoading}
               />
-              {formik.touched.password && formik.errors.password ? (
+              {formik.touched.password && formik.errors.password && (
                 <div className="text-red-500">{formik.errors.password}</div>
-              ) : null}
+              )}
               <input
                 id="confirmPassword"
                 name="confirmPassword"
                 type="password"
                 autoComplete="new-password"
                 required
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-1"
                 placeholder="Confirm Password"
                 value={formik.values.confirmPassword}
                 onChange={formik.handleChange}
@@ -122,11 +122,11 @@ export default function RegisterPage() {
                 disabled={isLoading}
               />
               {formik.touched.confirmPassword &&
-              formik.errors.confirmPassword ? (
+              formik.errors.confirmPassword && (
                 <div className="text-red-500">
                   {formik.errors.confirmPassword}
                 </div>
-              ) : null}
+              )}
             </div>
           </div>
 
@@ -144,7 +144,7 @@ export default function RegisterPage() {
           </div>
         </form>
         <div className="text-center mt-4">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 font-serif">
             Already have an account?{" "}
             <Link
               to="/login-page"
