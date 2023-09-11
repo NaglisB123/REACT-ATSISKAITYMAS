@@ -20,7 +20,7 @@ export default function Header() {
   return (
     <header className="bg-rose-700 py-11">
       <nav className="flex space-x-4 justify-center">
-        <div className="container mx-auto">
+        <div className="container">
           <div className="flex justify-between items-center">
             <Link
               to="/home-page"

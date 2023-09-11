@@ -8,7 +8,6 @@ import { auth } from '../../firebase/firebase';
 
 export default function Login() {
   const navigate = useNavigate();
-
   const initialValues = {
     email: '',
     password: '',
@@ -49,9 +48,9 @@ export default function Login() {
   }
 
   return (
-    <div className="flex items-center justify-center">
-      <div className="bg-white rounded-lg shadow-lg p-8 space-y-6 w-120">
-        <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-8">
+    <div className="bgClimb flex justify-center">
+      <div className="bg-white rounded-lg shadow-lg p-8 h-1/4 mt-20">
+        <h2 className="text-center text-3xl font-extrabold text-gray-900 mb-8 font-serif">
           Login
         </h2>
         {loginError && <div className="text-red-500">{loginError}</div>}
@@ -96,7 +95,7 @@ export default function Login() {
           </div>
         </form>
         <div className="text-center mt-4">
-          <p className="text-sm text-gray-600">
+          <p className="text-sm text-gray-600 font-serif">
             Don't have an account?{" "}
             <Link
               to="/register-page"
