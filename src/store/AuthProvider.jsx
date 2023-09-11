@@ -33,6 +33,7 @@ export default function AuthProvider(props) {
   };
 
   return (
+    // eslint-disable-next-line react/prop-types
     <AuthContext.Provider value={ctx}>{props.children}</AuthContext.Provider>
   );
 }
