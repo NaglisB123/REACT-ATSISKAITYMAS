@@ -31,18 +31,28 @@ export default function Products() {
       {isLoading ? (
         <p className='text-center text-gray-500'>Loading...</p>
       ) : (
-        shopEl.map((createdEl) => (
+        shopEl.map((productEL) => (
           <div
-            key={createdEl.id}
-            className='bg-yellow-400 rounded-lg shadow-md p-2 m-6 w-1/2'
+            key={productEL.id}
+            className='bg-yellow-200 rounded-lg shadow-md p-4 m-6 w-1/2'
           >
             <img
-              src={createdEl.img}
-              alt={createdEl.partName}
+              src={productEL.img}
+              alt={productEL.description}
               className='w-full h-48 object-cover rounded-t-lg'
             />
-            <div className='p-4'>
-              <h2 className='text-xl font-semibold'>{createdEl.brand}</h2>
+            <div className='p-4 bg-yellow-100'>
+              <h2 className='text-xl font-semibold text-indigo-600'>
+                {productEL.title}
+              </h2>
+              <p className='text-gray-600'>{productEL.description}</p>
+              <p className='text-lg font-bold text-green-600'>
+                ${productEL.price}
+              </p>
+              <p>{productEL.brand}</p>
+              <button className='mt-4 bg-indigo-500 text-white px-4 py-2 rounded-full hover:bg-indigo-700'>
+                Add to Cart
+              </button>
             </div>
           </div>
         ))

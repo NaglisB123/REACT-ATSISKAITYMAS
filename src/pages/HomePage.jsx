@@ -1,5 +1,3 @@
-import Footer from "../assets/components/layout/Footer";
-
 export default function HomePage() {
   return (
     <div>

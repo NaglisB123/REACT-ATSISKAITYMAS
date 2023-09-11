@@ -40,7 +40,7 @@ function CreateAdd() {
     try {
       const docRef = await addDoc(collection(db, "my-items"), dataToSend);
       console.log("Document written with ID: ", docRef.id);
-      toast.success("Shop has been created");
+      toast.success("Product has been created");
     } catch (error) {
       console.error("Error adding document: ", error);
       toast.error("An error has occured");
