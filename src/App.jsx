@@ -3,9 +3,10 @@ import Header from "./assets/components/layout/Header";
 import HomePage from "./pages/HomePage";
 import RegisterPage from "./pages/RegisterPage";
 import LoginPage from "./pages/LoginPage";
-import Shop from "./assets/components/Shop";
 import { useAuth } from "./store/AuthProvider";
 import Footer from "./assets/components/layout/Footer";
+import CreateAdd from "./pages/CreateAdd";
+import Shops from "./pages/Products";
 
 export default function App() {
   const ctx = useAuth();
@@ -17,9 +18,10 @@ export default function App() {
         <Route path="home-page" element={<HomePage />} />
         <Route path="register-page" element={<RegisterPage />} />
         <Route path="login-page" element={<LoginPage />} />
-        <Route path="shop-page" element={<Shop />} />
+        <Route path="shop-page" element={<Shops />} />
+        <Route path="addpage" element={<CreateAdd />} />
       </Routes>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

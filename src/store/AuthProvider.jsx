@@ -1,5 +1,5 @@
-import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { createContext, useContext, useEffect, useState } from "react";
+import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "../firebase/firebase";
 
 const AuthContext = createContext({
@@ -11,8 +11,8 @@ export default function AuthProvider(props) {
   const [fireUser, setFireUser] = useState(auth.currentUser);
 
   const userEmail = fireUser?.email;
-  let isLoggedIn = userEmail ? true : false;
-  isLoggedIn = !!userEmail;
+  const userUid = fireUser?.uid;
+  let isLoggedIn = !!userEmail;
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -30,6 +30,7 @@ export default function AuthProvider(props) {
   const ctx = {
     userEmail: userEmail,
     isLoggedIn: isLoggedIn,
+    userUid: userUid,
   };
 
   return (
