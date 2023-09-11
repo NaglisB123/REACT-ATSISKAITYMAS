@@ -1,25 +1,24 @@
-import React, { useState } from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import React, { useState } from "react";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { Link, useNavigate } from "react-router-dom";
-import { auth } from '../../firebase/firebase';
-
+import { auth } from "../../firebase/firebase";
 
 export default function Login() {
   const navigate = useNavigate();
   const initialValues = {
-    email: '',
-    password: '',
+    email: "",
+    password: "",
   };
 
   const validationSchema = Yup.object({
     email: Yup.string()
-      .email('Invalid email address')
-      .required('Email is required'),
+      .email("Invalid email address")
+      .required("Email is required"),
     password: Yup.string()
-      .min(6, 'Password should be at least 6 characters')
-      .required('Password is required'),
+      .min(6, "Password should be at least 6 characters")
+      .required("Password is required"),
   });
 
   const [loginError, setLoginError] = useState(null);
@@ -28,7 +27,7 @@ export default function Login() {
     initialValues,
     validationSchema,
     onSubmit: (values) => {
-      console.log('Form submitted with values:', values);
+      console.log("Form submitted with values:", values);
       loginWithFirebase(values.email, values.password);
     },
   });
@@ -37,12 +36,12 @@ export default function Login() {
     signInWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
-        console.log('User authenticated:', user);
-        navigate('/shop-page');
+        console.log("User authenticated:", user);
+        navigate("/shop-page");
       })
       .catch((error) => {
         const errorMessage = "Email or password is incorrect";
-        console.log('Authentication error:', errorMessage);
+        console.log("Authentication error:", errorMessage);
         setLoginError(errorMessage);
       });
   }
@@ -58,31 +57,31 @@ export default function Login() {
           <div className="rounded-md shadow-sm -space-y-px">
             <div className="flex flex-col">
               <input
-                type='text'
-                id='email'
-                name='email'
-                placeholder='Email address'
+                type="text"
+                id="email"
+                name="email"
+                placeholder="Email address"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.email}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-1"
               />
-              {formik.touched.email && formik.errors.email ? (
+              {formik.touched.email && formik.errors.email && (
                 <div className="text-red-500">{formik.errors.email}</div>
-              ) : null}
+              )}
               <input
-                type='password'
-                id='password'
-                name='password'
-                placeholder='Password'
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 value={formik.values.password}
-                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm my-1"
               />
-              {formik.touched.password && formik.errors.password ? (
+              {formik.touched.password && formik.errors.password && (
                 <div className="text-red-500">{formik.errors.password}</div>
-              ) : null}
+              )}
             </div>
           </div>
           <div className="text-center">
