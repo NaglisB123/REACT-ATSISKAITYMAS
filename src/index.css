@@ -43,6 +43,10 @@
   margin: 0; 
   padding: 0;
 }
+
+.bgBar{
+  background-image: url(./images/wall.jpg);
+}
 button:hover {
   border-color: #646cff;
 }
