@@ -48,8 +48,8 @@ function CreateAdd() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-100 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+    <div className="bgNature h-screen bg-gray-100 flex items-center justify-center">
+      <div className="p-8 mrounded-lg shadow-md w-96 bg-yellow-100">
         <h2 className="text-2xl font-semibold mb-4">Create Ad</h2>
         <form onSubmit={formik.handleSubmit}>
           <div className="mb-4">

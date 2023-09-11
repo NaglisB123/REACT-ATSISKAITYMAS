@@ -47,6 +47,9 @@
 .bgBar{
   background-image: url(./images/wall.jpg);
 }
+.bgNature{
+  background-image: url(./images/nature.jpg);
+}
 button:hover {
   border-color: #646cff;
 }
