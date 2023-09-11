@@ -18,7 +18,7 @@ export default function Header() {
   }
 
   return (
-    <header className="bg-amber-950 py-11">
+    <header className="bg-rose-700 py-11">
       <nav className="flex space-x-4 justify-center">
         <div className="container mx-auto">
           <div className="flex justify-between items-center">
@@ -26,7 +26,7 @@ export default function Header() {
               to="/home-page"
               className="text-2xl text-white hover:text-gray-200 font-bold tracking-wide"
             >
-              MY <span className="text-red-500">SHOP</span>
+              MY <span className="text-amber-500">SHOP</span>
             </Link>
 
             <ul className="flex space-x-4">

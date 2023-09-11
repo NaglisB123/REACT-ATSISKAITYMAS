@@ -29,9 +29,15 @@ h1 {
 }
 
 .bg {
-  background-image: url(./images//garrisonpub.jpg);
-  height: 800px;
+  background-image: url(./images/minimalist.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  height: 100vh;
+  margin: 0; 
+  padding: 0;
 }
+
 
 button {
   border-radius: 8px;
