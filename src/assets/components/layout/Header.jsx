@@ -4,7 +4,6 @@ import { useAuth } from "../../../store/AuthProvider";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebase/firebase";
 
-
 export default function Header() {
   const ctx = useAuth();
   console.log("ctx ===", ctx);
@@ -22,19 +21,25 @@ export default function Header() {
       <nav className="flex space-x-4 justify-center">
         <div className="container">
           <div className="flex justify-between items-center">
-            <Link
-              to="/home-page"
-              className="text-2xl text-white hover:text-gray-200 font-bold tracking-wide"
-            >
-              MY <span className="text-amber-500">SHOP</span>
-            </Link>
-
+            <div className="flex items-center">
+              <img
+                className="h-16"
+                src="./public/logo.jpg"
+                alt="company logo"
+              />
+              <Link
+                to="/home-page"
+                className="text-4xl text-white hover:text-gray-200 font-bold tracking-wide pl-5"
+              >
+                MY <span className="italic text-yellow-500">SHOP</span>
+              </Link>
+            </div>
             <ul className="flex space-x-4">
               <li>
                 {!ctx.isLoggedIn && (
                   <NavLink
                     to="/register-page"
-                    className="text-xl text-white hover:text-gray-200"
+                    className="text-3xl text-white hover:text-gray-200"
                   >
                     Register
                   </NavLink>
@@ -44,7 +49,7 @@ export default function Header() {
                 {!ctx.isLoggedIn && (
                   <NavLink
                     to="/login-page"
-                    className="text-xl text-white hover:text-gray-200"
+                    className="text-3xl text-white hover:text-gray-200"
                   >
                     Login
                   </NavLink>
@@ -52,7 +57,7 @@ export default function Header() {
                 {isLoggedIn && (
                   <NavLink
                     to="/shop-page"
-                    className="text-xl text-white hover:text-gray-200"
+                    className="text-3xl text-white hover:text-gray-200"
                   >
                     Shop Page
                   </NavLink>
@@ -60,13 +65,13 @@ export default function Header() {
               </li>
               <li>
                 {ctx.isLoggedIn && (
-                  <button
+                  <Link
                     onClick={logout}
-                    className="text-xl text-white hover:text-gray-200 cursor-pointer"
-                    title="Logout"
+                    className="text-3xl text-white hover:text-gray-200 cursor-pointer"
+                    to="/home-page"
                   >
                     Logout
-                  </button>
+                  </Link>
                 )}
               </li>
             </ul>
