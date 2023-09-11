@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { useAuth } from "../../../store/AuthProvider";
 import { signOut } from "firebase/auth";
 import { auth } from "../../../firebase/firebase";
+import { Toaster } from "react-hot-toast";
 
 export default function Header() {
   const ctx = useAuth();
@@ -19,6 +20,7 @@ export default function Header() {
   return (
     <header className="bg-rose-700 py-11">
       <nav className="flex space-x-4 justify-center">
+        <Toaster />
         <div className="container">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
@@ -61,6 +63,16 @@ export default function Header() {
                   >
                     Shop Page
                   </NavLink>
+                )}
+              </li>
+              <li>
+                {ctx.isLoggedIn && (
+                  <Link
+                    className="text-3xl text-white hover:text-gray-200 cursor-pointer"
+                    to="/addpage"
+                  >
+                    Ad page
+                  </Link>
                 )}
               </li>
               <li>
